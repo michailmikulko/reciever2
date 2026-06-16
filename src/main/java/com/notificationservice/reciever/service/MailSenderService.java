@@ -1,13 +1,14 @@
 package com.notificationservice.reciever.service;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Slf4j
 @Service
 @RequiredArgsConstructor
 public class MailSenderService {
@@ -29,6 +30,6 @@ public class MailSenderService {
         mailMessage.setText(body);
         mailMessage.setFrom(from);
         mailSender.send(mailMessage);
-
+        log.info("Send message to {}",to);
     }
 }
