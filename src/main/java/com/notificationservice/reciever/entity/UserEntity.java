@@ -1,4 +1,4 @@
-package com.authService.entity;
+package com.notificationservice.reciever.entity;
 
 import jakarta.persistence.*;
 
