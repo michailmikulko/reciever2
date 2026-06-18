@@ -8,6 +8,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Slf4j
 @Service
 @RequiredArgsConstructor
@@ -22,7 +23,7 @@ public class MailSenderService {
         }
     }
 
-    public void send(String to, String subject, String body){
+    public void send(String to, String subject, String body) {
 
         SimpleMailMessage mailMessage = new SimpleMailMessage();
         mailMessage.setTo(to);
@@ -30,6 +31,6 @@ public class MailSenderService {
         mailMessage.setText(body);
         mailMessage.setFrom(from);
         mailSender.send(mailMessage);
-        log.info("Send message to {}",to);
+        log.info("Send message to {}", to);
     }
 }

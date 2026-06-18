@@ -11,10 +11,10 @@ public class UserEntity {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "username", nullable = false)
+    @Column(name = "username", nullable = false,unique = true)
     private String username;
 
-    @Column(name = "password", nullable = false,unique = true)
+    @Column(name = "password", nullable = false)
     private String password;
 
     @Column(name = "email", nullable = false,unique = true)
@@ -42,9 +42,9 @@ public class UserEntity {
         this.role = role;
     }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+//    public void setId(Long id) {
+//        this.id = id;
+//    }
 
     public Long getId() {
         return id;

@@ -1,8 +1,9 @@
 package com.notificationservice.reciever.dto;
 
 
-public record UserEvent (
+public record UserEvent(
         EventType type,
-    String email,
-    String username
-){}
+        String email,
+        String username
+) {
+}

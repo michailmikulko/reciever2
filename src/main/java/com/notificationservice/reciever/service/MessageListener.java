@@ -10,6 +10,7 @@ import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
 @Slf4j
 @Service
 @AllArgsConstructor
@@ -20,7 +21,7 @@ public class MessageListener {
     @RabbitListener(queues = "${queue.name}")
     public void receive(UserEvent message) {
 
-        log.info("Got event {}",message.type());
+        log.info("Got event {}", message.type());
         List<UserEntity> admins = userRepository.findAllByRole(RoleType.ADMIN);
 
         List<String> emails = admins.stream()
@@ -31,7 +32,6 @@ public class MessageListener {
             case USER_CREATED -> "Создан";
             case USER_UPDATED -> "Изменен";
             case USER_DELETED -> "Удален";
-            default -> "Изменен";
         };
 
         String subject = action + " пользователь " + message.username();
